@@ -15,7 +15,7 @@
 
         
     shell> scp ./script/test.py 192.168.2.178:/tmp/test.py
-    shell> ./Sclient  -Rserver 192.168.2.178:3721 -cmd "python -u /tmp/test.py"  
+    shell> ./Sclient  -Rserver 192.168.2.178:3721 -user oracle -cmd "python -u /tmp/test.py"  
 
    3.查看本地日志返回
     
@@ -38,7 +38,6 @@
 * BASE版
 1. 执行python程序时，如果程序中使用到了print，在调用shadow时，必须要加入 -u 参数。原因：print默认输出是带有缓冲区，
    即只有当标准输出写满整个缓冲区时，才能将结果进行返回，-u 即不使用缓冲区，直接将结果返回标准输出。
-2. 远程server启动时，默认以127.0.0.1启动
+2. 远程server以root启动(涉及到指定用户执行命令)，默认以127.0.0.1启动,目前已支持指定用户进行命令执行。
 3. 目前远程执行命令都是以同步的方式进行运行，即不使用 nohup sh +x xxxx.sh & 方式。
-4. 默认以root启动，目前已支持指定用户进行命令执行
 
