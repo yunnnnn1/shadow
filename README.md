@@ -7,7 +7,7 @@
 编译Linux,Windows和Mac环境下可执行程序
 
 ```go
-go get -u github.com/jingmingyu/shadow
+git clone https://github.com/jingmingyu/shadow.git
 go mod tidy 
 ```
 
