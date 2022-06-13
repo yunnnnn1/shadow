@@ -11,19 +11,19 @@ git clone https://github.com/jingmingyu/shadow.git
 go mod tidy 
 ```
 
-######linux
+#####linux
 ```go
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/linux/Sserver server/main.go
 
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/linux/Sclient client/main.go
 ```
-######windows
+#####windows
 ```go
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/windows/Sserver server/main.go
 
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/windows/Sclient client/main.go
 ```
-######mac
+#####mac
 ```go
 CGO_ENABLED=0 GOOS=mac GOARCH=amd64 go build -o bin/mac/Sserver server/main.go
 
