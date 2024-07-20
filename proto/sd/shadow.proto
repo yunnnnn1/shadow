@@ -1,0 +1,37 @@
+// 选择 proto3 语法
+syntax = "proto3";
+
+// 定义一个包名
+package shadow;
+
+option go_package = ".;mirror";
+
+// message 相当于一个结构体，里面定义字段属性， 先类型后变量名，然后序列号。
+// protoful 编码是通过成员的唯一编号来绑定对应的数据。
+
+// 定义一个请求结构体
+// 可以定义多个传参
+message ExecRequest {
+    string cmd = 1;
+    string action =2;
+    string user = 3;
+    string cip = 4;
+    string filename = 5;
+    string isRecover = 6;
+    string remotepath = 7;
+    string timeout = 8;
+    string limitspeed = 9;
+
+}
+// 定义一个响应结构体
+// 可以定义多个返回值
+message ExecStreamResponse {
+    string stdout = 1;
+}
+
+// 定义一个 service 服务，相当于 GO 接口定义
+service ShadowStreamService {
+    // 以 rpc 开头，定义未实现的方法名称。 必须要有一个请求 message 和响应 message
+    // rpc, returns 都是关键字
+    rpc ExecStreamCMD(ExecRequest) returns (stream ExecStreamResponse){};
+}
